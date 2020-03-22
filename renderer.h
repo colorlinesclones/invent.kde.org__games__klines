@@ -139,6 +139,16 @@ public:
             return 0;
         }
     }
+
+    static qreal devicePixelRatio()
+    {
+        return m_devicePixelRatio;
+    }
+    static void setDevicePixelRatio(qreal dpr)
+    {
+        m_devicePixelRatio = dpr;
+    }
+
 private:
     // disable copy - it's singleton
     KLinesRenderer();
@@ -170,6 +180,8 @@ private:
     static int m_selDuration;
     static int m_dieDuration;
     static int m_moveDuration; // one cell
+
+    static qreal m_devicePixelRatio;
 };
 
 #endif

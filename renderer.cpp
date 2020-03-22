@@ -58,6 +58,7 @@ int KLinesRenderer::m_bornDuration(0);
 int KLinesRenderer::m_selDuration(0);
 int KLinesRenderer::m_dieDuration(0);
 int KLinesRenderer::m_moveDuration(0);
+qreal KLinesRenderer::m_devicePixelRatio(1.0);
 
 KLinesRenderer  *g_KLinesRenderer = nullptr;
 
@@ -167,7 +168,8 @@ QPixmap KLinesRenderer::getPixmap(const QString& svgName, const QSize& customSiz
 
     QSize sz = customSize.isValid() ? customSize : cellExtent();
 
-    QPixmap pix = m_renderer->spritePixmap(svgName, sz);
+    QPixmap pix = m_renderer->spritePixmap(svgName, sz * m_devicePixelRatio);
+    pix.setDevicePixelRatio(m_devicePixelRatio);
 
     return pix;
 }

@@ -43,6 +43,7 @@
 KLinesMainWindow::KLinesMainWindow()
 {
     KLinesRenderer::Init();
+    KLinesRenderer::setDevicePixelRatio(devicePixelRatioF());
 
     mwidget = new MainWidget(this);
     setCentralWidget( mwidget );
